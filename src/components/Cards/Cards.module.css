@@ -1,0 +1,22 @@
+.container {
+    margin : 50px 0;
+}
+.card{
+    height: 100%;
+    width: 90%;
+}
+.infected {
+    border-bottom: 10px solid rgba(127,127,255);
+}
+.recovered {
+    border-bottom: 10px solid rgba(76,207,118);
+}
+.deaths{
+    border-bottom: 10px solid rgba(220,53,69);
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .card{
+        width : 100%;
+    }
+}

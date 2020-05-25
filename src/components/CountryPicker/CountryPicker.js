@@ -2,9 +2,9 @@ import React from 'react';
 
 const CountryPicker = () => {
     return(
-        <div>
+        <h1>
             CountryPicker
-        </div>
+        </h1>
     )
 }
 
