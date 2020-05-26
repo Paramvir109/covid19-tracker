@@ -14,8 +14,8 @@ const CountryPicker = ({handleCountryChange}) => {
         fetchAPI();
     },[setCountries])
     return(
-            <Select  showSearch className={styles.select} listHeight={400} defaultValue="" onChange={(country) => handleCountryChange(country)}>
-                <Option value="global">Global</Option>
+            <Select  showSearch className={styles.select} listHeight={400} defaultValue="" onChange={(value) => handleCountryChange(value)}>
+                <Option value="" >Global</Option>
                     {countries.length? countries.map((country,i) =>(<Option key={i} value={country}>{country}</Option>)) : null}
              </Select>
     )

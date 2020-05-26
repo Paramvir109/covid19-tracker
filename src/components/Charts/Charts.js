@@ -2,7 +2,8 @@ import React, {useEffect,useState} from 'react';
 import {fetchDailyData} from '../../api';
 import {Line,Bar }from 'react-chartjs-2';
 import styles from './Charts.module.css';
-const Charts = ({data,country}) => {
+import Title from 'antd/lib/skeleton/Title';
+const Charts = ({data : {confirmed,recovered,deaths},country}) => {
 
     const [dailyData, setDailyData] = useState([]);
     useEffect(() =>{
@@ -13,7 +14,34 @@ const Charts = ({data,country}) => {
     },[])
 
     const barChart = (
-        data.confirmed? <Bar 
+        confirmed? <Bar 
+            data = {
+                {
+                    labels:['Infected', 'Recovered', 'Deaths'],
+                    datasets:[{
+                        label: 'People',
+                        backgroundColor:['rgba(127,127,255,0.7)','rgba(76,207,118,0.7)','rgba(220,53,69,0.7)'],
+                        data:[confirmed.value ,recovered.value ,deaths.value ]
+                    }
+                   ]
+                }
+            }
+            options={{
+                legend: {display:false},
+                title:{ display: true, text: `Current state in ${country}`},
+                scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'No of people',
+                        fontSize:15
+                      }
+                    }]
+                }   
+
+            }}
+            height={1}
+            width={2.6}
             
         /> : null
     )
@@ -46,7 +74,7 @@ const Charts = ({data,country}) => {
 
     return(
         <div className={styles.container}>
-            {lineChart}
+            {country? barChart : lineChart}
         </div>
     )
 }
