@@ -2,7 +2,7 @@ import React, {useEffect,useState} from 'react';
 import {fetchDailyData} from '../../api';
 import {Line,Bar }from 'react-chartjs-2';
 import styles from './Charts.module.css';
-import Title from 'antd/lib/skeleton/Title';
+
 const Charts = ({data : {confirmed,recovered,deaths},country}) => {
 
     const [dailyData, setDailyData] = useState([]);

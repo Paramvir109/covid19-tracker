@@ -13,7 +13,7 @@ const Cards = ({data : {confirmed, recovered,deaths,lastUpdate}}) => {
     return (
         <div className={styles.container}>
             <Row gutter={8} type="flex">
-                <Col xs={24} md={8}>
+                <Col xs={24} md={8}className={styles.column}>
                     <Card className={cx(styles.card,styles.infected)}>
                         <Text type="secondary">Infected</Text>
                         <Title level={4}>
@@ -28,7 +28,7 @@ const Cards = ({data : {confirmed, recovered,deaths,lastUpdate}}) => {
                         <Text>No. of active cases of COVID-19</Text>
                     </Card>
                 </Col>
-                <Col xs={24} md={8} >
+                <Col xs={24} md={8} className={styles.column}>
                     <Card className={cx(styles.card,styles.recovered)}>
                         <Text type="secondary">Recovered</Text>
                         <Title level={4}>
@@ -43,7 +43,7 @@ const Cards = ({data : {confirmed, recovered,deaths,lastUpdate}}) => {
                         <Text>No. of recoveries from COVID-19</Text>
                     </Card>
                 </Col>
-                <Col xs={24} md={8} >
+                <Col xs={24} md={8} className={styles.column}>
                     <Card  className={cx(styles.card,styles.deaths)}>
                         <Text type="secondary">Deaths</Text>
                         <Title level={4}><CountUp

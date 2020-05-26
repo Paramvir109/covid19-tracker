@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import styles from './CountryPicker.module.css';
-import {Form, Select} from 'antd';
+import {Select} from 'antd';
 import {fetchCountries} from '../../api'
 
 const {Option} = Select;
