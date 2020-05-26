@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
+import styles from './CountryPicker.module.css';
+import {Form, Select} from 'antd';
+import {fetchCountries} from '../../api'
 
-const CountryPicker = () => {
+const {Option} = Select;
+
+const CountryPicker = ({handleCountryChange}) => {
+    const [countries, setCountries] = useState([]);
+    useEffect(() =>{
+        const fetchAPI = async () => {
+            setCountries( await fetchCountries());
+        }
+        fetchAPI();
+    },[setCountries])
     return(
-        <h1>
-            CountryPicker
-        </h1>
+            <Select  showSearch className={styles.select} listHeight={400} defaultValue="" onChange={(country) => handleCountryChange(country)}>
+                <Option value="global">Global</Option>
+                    {countries.length? countries.map((country,i) =>(<Option key={i} value={country}>{country}</Option>)) : null}
+             </Select>
     )
 }
 
