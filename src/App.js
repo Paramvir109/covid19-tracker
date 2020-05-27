@@ -4,7 +4,7 @@ import React from 'react';
 // import CountryPicker from './components/CountryPicker/CountryPicker';
 
 import  'antd/dist/antd.css';
-import { Cards, Charts,CountryPicker} from './components';
+import { Cards, Charts,CountryPicker,Doughnuts} from './components';
 import styles from './App.module.css';// So while applying classname use styles.className
 import { fetchData } from './api';
 import covidimg from './images/COVID-19.png';
@@ -32,8 +32,10 @@ class App extends React.Component {
       <div className={styles.container}> 
         <img src={covidimg} alt={'COVID-19'} className={styles.image}/>
         <Cards data = {data}/>
+        <Doughnuts data = {data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Charts  data={data} country={country} />
+        
 
       </div>
     )
