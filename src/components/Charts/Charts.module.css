@@ -1,11 +1,11 @@
-.container{
-    display: flex;
-    justify-content: center;
-    width: 75%;
+.container {
+	display: flex;
+	justify-content: center;
+	width: 75%;
 }
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .container{
-        width: 100%;
-    }
+	/* For mobile phones: */
+	.container {
+		width: 100%;
+	}
 }
