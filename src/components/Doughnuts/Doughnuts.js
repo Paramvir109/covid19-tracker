@@ -15,7 +15,7 @@ const Doughnuts = ({ data: { confirmed, recovered, deaths } }) => {
 					data={{
 						datasets: [
 							{
-								data: [recovered.value, confirmed.value - recovered.value],
+								data: [recovered, confirmed - recovered],
 								backgroundColor: ["rgba(76,207,118)", "#CCCCCC"],
 							},
 						],
@@ -33,7 +33,7 @@ const Doughnuts = ({ data: { confirmed, recovered, deaths } }) => {
 						elements: {
 							center: {
 								text: `${
-									Math.round(((recovered.value * 100) / confirmed.value) * 10) /
+									Math.round(((recovered * 100) / confirmed) * 10) /
 									10
 								}%`,
 								color: "black", // Default is #000000
@@ -50,7 +50,7 @@ const Doughnuts = ({ data: { confirmed, recovered, deaths } }) => {
 					data={{
 						datasets: [
 							{
-								data: [deaths.value, confirmed.value - deaths.value],
+								data: [deaths, confirmed - deaths],
 								backgroundColor: ["rgba(220,53,69)", "#CCCCCC"],
 							},
 						],
@@ -68,7 +68,7 @@ const Doughnuts = ({ data: { confirmed, recovered, deaths } }) => {
 						elements: {
 							center: {
 								text: `${
-									Math.round(((deaths.value * 100) / confirmed.value) * 10) / 10
+									Math.round(((deaths * 100) / confirmed) * 10) / 10
 								}%`,
 								color: "black", // Default is #000000
 								fontStyle: "Arial", // Default is Arial
